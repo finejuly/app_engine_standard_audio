@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <h2>A example of flask with mnist dataset</h2>
+
+
+  <form action="{{ url_for('select_wav') }}" method=post enctype=multipart/form-data>
+    <dl>
+      <dt>Image index:
+      <dd><input type=file name=wav_file>
+      <dd><input type=submit value=see>
+    </dl>
+  </form>
+
+  <audio controls>
+    <source src="{{url_for('static',filename=wav_filename)}}" type="audio/wav"/>
+  Your browser does not support the audio element.
+  </audio>
+  <h2> </h2>
+  <img src="{{url_for('static',filename=im_filename)}}" width="200" height="1000" style="image-rendering: pixelated;">
+  <img src="{{url_for('static',filename=fea_filename)}}" width="200" height="1000" style="image-rendering: pixelated;">
+{% endblock %}
